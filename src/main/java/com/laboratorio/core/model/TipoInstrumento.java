@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tipo_instrumento")
 public class TipoInstrumento implements Serializable{
@@ -22,6 +24,7 @@ public class TipoInstrumento implements Serializable{
 	private Long codigoInstrumento;
 	@Column (name="descripcion")
 	private String descripcion;
+	@JsonIgnore
 	@OneToMany(mappedBy="codigoInstrumento", cascade = CascadeType.ALL)
 	private Set<Producto> producto = new HashSet<Producto>();
 	

@@ -25,28 +25,36 @@ public class Producto implements Serializable{
 	private String modelo;
 
 	@ManyToOne(fetch = FetchType.EAGER) 
-	@JoinColumn (name = "codigo_instrumento", referencedColumnName="codigo_instrumento", nullable = false, insertable = false, updatable = false)
+	@JoinColumn (name = "codigo_instrumento",  insertable = false, updatable = false)
 	private TipoInstrumento  codigoInstrumento;
 	@Column (name="precio")
 	private float precio;
 	@Column (name="garantia_meses")
 	private Integer garantiaMeses;
 	@ManyToOne(fetch = FetchType.EAGER) 
-	@JoinColumn (name = "codigo_pais", referencedColumnName="codigo_pais", nullable = false, insertable = false, updatable = false)
+	@JoinColumn (name = "codigo_pais",  insertable = false, updatable = false)
 	private Pais codigoPais;
 	
 	
-	public Producto(Long codigoProducto, String nombre, String modelo, TipoInstrumento codigoInstrumento, float precio,
-			Integer garantiaMeses, Pais codigoPais) {
+	public Producto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public Producto(Long codigoProducto, String nombre, String modelo, float precio,
+			Integer garantiaMeses) {
 		super();
 		this.codigoProducto = codigoProducto;
 		this.nombre = nombre;
 		this.modelo = modelo;
-		this.codigoInstrumento = codigoInstrumento;
 		this.precio = precio;
 		this.garantiaMeses = garantiaMeses;
-		this.codigoPais = codigoPais;
 	}
+	
+	
+	
 	public Long getCodigoProducto() {
 		return codigoProducto;
 	}

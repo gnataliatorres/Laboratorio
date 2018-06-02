@@ -2,10 +2,14 @@ package com.laboratorio.core.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.laboratorio.core.dao.AbstractSession;
 import com.laboratorio.core.dao.ProductoDao;
 import com.laboratorio.core.model.Producto;
-
+@Repository
+@Transactional
 public class ProductoDaoImpl extends AbstractSession implements ProductoDao{
 
 	@Override
