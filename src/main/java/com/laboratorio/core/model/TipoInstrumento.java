@@ -34,6 +34,14 @@ public class TipoInstrumento implements Serializable{
 		this.codigoInstrumento = codigoInstrumento;
 		this.descripcion = descripcion;
 	}
+	
+	
+	public Set<Producto> getProducto() {
+		return producto;
+	}
+	public void setProducto(Set<Producto> producto) {
+		this.producto = producto;
+	}
 	public Long getCodigoInstrumento() {
 		return codigoInstrumento;
 	}

@@ -34,6 +34,8 @@ public class Producto implements Serializable{
 	@ManyToOne(fetch = FetchType.EAGER) 
 	@JoinColumn (name = "codigo_pais", referencedColumnName="codigo_pais", nullable = false, insertable = false, updatable = false)
 	private Pais codigoPais;
+	
+	
 	public Producto(Long codigoProducto, String nombre, String modelo, TipoInstrumento codigoInstrumento, float precio,
 			Integer garantiaMeses, Pais codigoPais) {
 		super();

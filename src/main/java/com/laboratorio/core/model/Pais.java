@@ -1,12 +1,16 @@
 package com.laboratorio.core.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +21,9 @@ public class Pais implements Serializable{
 	@Column (name ="codigo_pais")
 	private Long codigoPais;
 	@Column (name="nombre")
-	private String nombre;
+	private String nombre;	
+	@OneToMany(mappedBy="codigoPais", cascade = CascadeType.ALL)
+	private Set<Producto> producto = new HashSet<Producto>();
 	
 	public Pais() {
 		
@@ -27,6 +33,16 @@ public class Pais implements Serializable{
 		super();
 		this.codigoPais = codigoPais;
 		this.nombre = nombre;
+	}
+
+	
+	
+	public Set<Producto> getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Set<Producto> producto) {
+		this.producto = producto;
 	}
 
 	public Long getCodigoPais() {
